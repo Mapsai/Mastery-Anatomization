@@ -1,0 +1,20 @@
+RewriteEngine On
+
+# 12 hours for most static assets
+#<filesMatch ".(css|jpg|jpeg|png|gif|js|ico)$">
+#Header set Cache-Control "max-age=43200, public"
+#</filesMatch>
+
+RewriteCond %{HTTP_USER_AGENT} libwww-perl.* 
+RewriteRule .* ? [F,L]
+
+ErrorDocument 401 /errors/error404.php
+ErrorDocument 403 /errors/error404.php
+ErrorDocument 404 /errors/error404.php
+ErrorDocument 500 /errors/error404.php
+
+#RewriteCond %{HTTP_HOST} ^www\.ncore\.96\.lt$
+#RewriteRule ^/?$ "http\:\/\/ncore\.96\.lt\/" [R=301,L]
+
+#RewriteCond %{HTTP_HOST} ^31\.220\.16\.50
+#RewriteRule (.*) http://ncore.96.lt/$1 [R=301,L]
