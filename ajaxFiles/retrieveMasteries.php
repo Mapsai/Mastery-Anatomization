@@ -74,7 +74,7 @@ function retrieveMasteries($name, $server, $sort, $table)
 		$conv = json_decode($source, true); // Get all champions.
 		$count = count($conv['champions']);
 
-		for ($i = 0; $i < 2; $i++)
+		for ($i = 0; $i < $count; $i++)
 		{
 			$source2 = file_get_contents('https://global.api.pvp.net/api/lol/static-data/eune/v1.2/champion/'.$conv['champions'][$i]['id'].'?api_key='.$key.'');
 			$conv2 = json_decode($source2, true);	// Get champion name and picture.
@@ -109,7 +109,7 @@ function retrieveMasteries($name, $server, $sort, $table)
 		$conv = json_decode($source, true);	// Get champion mastery.
 		$count = count($conv);
 
-		for ($i = 0; $i < 10; $i++)
+		for ($i = 0; $i < $count; $i++)
 		{
 			$source2 = file_get_contents('https://global.api.pvp.net/api/lol/static-data/eune/v1.2/champion/'.$conv[$i]['championId'].'?api_key='.$key.'');
 			$conv2 = json_decode($source2, true);	// Get champion name and picture.
@@ -144,7 +144,7 @@ function retrieveMasteries($name, $server, $sort, $table)
 		$response .= '<tr class="info">';
 		$response .= '<th>#</th><th>Champion name</th><th>Level and mastery points</th><th>Chest</th><th>Last gameplay on Rift</th></tr>';
 
-		for ($i = 0; $i < 10; $i++)
+		for ($i = 0; $i < $count; $i++)
 		{
 			$source2 = file_get_contents('https://global.api.pvp.net/api/lol/static-data/eune/v1.2/champion/'.$conv['champions'][$i]['id'].'?api_key='.$key.'');
 			$conv2 = json_decode($source2, true);	// Get champion name and picture.
@@ -186,7 +186,7 @@ function retrieveMasteries($name, $server, $sort, $table)
 		$response .= '<tr class="info">';
 		$response .= '<th>#</th><th>Champion name</th><th>Level and mastery points</th><th>Highest grade</th><th>Chest</th><th>Last gameplay on Rift</th></tr>';
 
-		for ($i = 0; $i < 3; $i++)
+		for ($i = 0; $i < $count; $i++)
 		{
 			$source2 = file_get_contents('https://global.api.pvp.net/api/lol/static-data/eune/v1.2/champion/'.$conv[$i]['championId'].'?api_key='.$key.'');
 			$conv2 = json_decode($source2, true);	// Get champion name and picture.

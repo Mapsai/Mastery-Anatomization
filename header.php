@@ -56,8 +56,6 @@ function getHeader($title = "")
 	require_once('menu.php');
 	?>
 
-	<div class="alert alert-warning"><strong>Note:</strong> Champions pool is limited to 10 attempts only due to limited API requests.<br></div><br>
-
 	<div id="serverPanels"></div><Br>
 	<?
 }

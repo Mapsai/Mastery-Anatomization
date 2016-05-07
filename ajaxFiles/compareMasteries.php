@@ -14,7 +14,7 @@ function nicetime($date)
 	if (empty($unix_date))
 		return "Bad date";
 
-	// is it future date or past date
+	// is it past date or... future?
 	if ($now > $unix_date)
 	{   
 		$difference = $now - $unix_date;
@@ -90,7 +90,7 @@ function retrieveMasteries($name, $name_2, $server, $server_2, $table)
 		$conv_2 = json_decode($source_2, true); // Get all champions.
 		$j = 0;
 
-		for ($i = 0; $i < 5; $i++)
+		for ($i = 0; $i < $count; $i++)
 		{
 			$j++;
 
@@ -177,7 +177,7 @@ function retrieveMasteries($name, $name_2, $server, $server_2, $table)
 		$response .= '<tr class="info">';
 		$response .= '<th>#</th><th>Champion name</th><th>Summoner\'s name and mastery information</th></tr>';
 
-		for ($i = 0; $i < 10; $i++)
+		for ($i = 0; $i < $count; $i++)
 		{
 			// For Summoner #1
 			$source2 = file_get_contents('https://global.api.pvp.net/api/lol/static-data/eune/v1.2/champion/'.$conv['champions'][$i]['id'].'?api_key='.$key.'');
